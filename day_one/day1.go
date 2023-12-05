@@ -74,37 +74,20 @@ func (s Solution) Solve(scanner *bufio.Scanner) {
 			ltr := rune(line[i])
 			if !isLetter(ltr) {
 				val, _ := strconv.Atoi(string(ltr))
-				// fmt.Printf("Found val %+v\n", val)
 				accum = append(accum, val)
 				continue
 			}
 			val, _ := findValue(line, i, tree)
 			if val != -1 {
-				// fmt.Printf("found value %+v\n", val)
 				accum = append(accum, val)
 			}
 		}
-		// if len(accum) <= 1 {
-		// 	fmt.Printf("sumthing broke %+v\n", line)
-		// 	continue
-		// }
 		strval := fmt.Sprintf("%+v%+v", accum[0], accum[len(accum)-1])
-		// fmt.Printf("strval: %+v\n", strval)
 		v, _ := strconv.Atoi(strval)
 		sum += v
 	}
 	fmt.Printf("Sum is %+v", sum)
 }
-
-// func findNumberWords(s string) {
-// 	for i, ltr := range(s) {
-// 		possibles := letterWords[ltr]
-// 		if possibles == nil {
-// 			continue
-// 		}
-// 		for
-// 	}
-// }
 
 func isLetter(r rune) bool {
 	return r >= 'a' && r <= 'z'
@@ -127,42 +110,4 @@ func (s Solution) SolvePtOne(scanner *bufio.Scanner) {
 		sum += num
 	}
 	fmt.Printf("SUM: %+v", sum)
-	// mostCals := 0
-	// curElfTotalCals := 0
-	// leaderBoard := []int{0, 0, 0}
-
-	// for scanner.Scan() {
-	// 	calString := scanner.Text()
-	// 	if len(calString) == 0 {
-	// 		if curElfTotalCals > mostCals {
-	// 			mostCals = curElfTotalCals
-	// 		}
-	// 		leaderBoard = checkLeaderBoard(curElfTotalCals, leaderBoard)
-	// 		curElfTotalCals = 0
-	// 		continue
-	// 	}
-	// 	calInt, err := strconv.Atoi(calString)
-	// 	if err != nil {
-	// 		fmt.Printf("Could not parse %+v, err %+v\n", calString, err)
-	// 	}
-	// 	curElfTotalCals += calInt
-	// }
-	// leadsTotal := 0
-	// for _, cur := range leaderBoard {
-	// 	leadsTotal += cur
-	// }
-	// fmt.Printf("mostCals is %+v\nleads total cals: %+v\n", mostCals, leadsTotal)
 }
-
-// func checkLeaderBoard(newScore int, leaders []int) []int {
-// 	current := newScore
-// 	prevLeader := 0
-// 	for i := 0; i < len(leaders); i++ {
-// 		if current > leaders[i] {
-// 			prevLeader = leaders[i]
-// 			leaders[i] = current
-// 			current = prevLeader
-// 		}
-// 	}
-// 	return leaders
-// }
